@@ -28,11 +28,16 @@ class NewTextViewController: UIViewController {
         view.addSubview(textField)
         displayTextField()
         updateSaveButtonState()
+        textField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
 }
     
     private func updateSaveButtonState() {
         let inputText = textField.text ?? ""
         navigationItem.rightBarButtonItem?.isEnabled = !inputText.isEmpty
+    }
+    
+    @objc func textFieldDidChange() {
+        updateSaveButtonState()
     }
     
     func displayTextField() {
