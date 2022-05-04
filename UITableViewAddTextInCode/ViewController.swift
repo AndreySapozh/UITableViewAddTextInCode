@@ -18,17 +18,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpNavigation()
-//        objects = getText()
         configureTableView()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapButton))
-    }
-    
-    func setUpNavigation() {
-//        navigationItem.title = "Add text"
-        self.navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.backgroundColor = .white
-
     }
     
     @objc private func didTapButton() {
@@ -91,17 +82,5 @@ extension ViewController: AddTextDelegate {
     
 }
 
-//extension ViewController {
-//    func getText() -> [Text] {
-//        let  text = [
-//            Text(text: "first"),
-//            Text(text: "second"),
-//            Text(text: "third"),
-//            Text(text: "fourth"),
-//            Text(text: "fifth")
-//            ]
-//        return text
-//    }
-//}
 
 

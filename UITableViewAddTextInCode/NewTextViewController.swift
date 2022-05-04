@@ -22,9 +22,7 @@ class NewTextViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(buttonCancel))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(handleSave))
-        
+        displayBarButtons()
         view.addSubview(textField)
         displayTextField()
         updateSaveButtonState()
@@ -34,6 +32,11 @@ class NewTextViewController: UIViewController {
     private func updateSaveButtonState() {
         let inputText = textField.text ?? ""
         navigationItem.rightBarButtonItem?.isEnabled = !inputText.isEmpty
+    }
+    
+    private func displayBarButtons() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(buttonCancel))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(handleSave))
     }
     
     @objc func textFieldDidChange() {
